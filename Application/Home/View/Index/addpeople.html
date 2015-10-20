@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    
+    <title>新增人事档案</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__Css__/Admin/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <include file="Public/menu" />
+    <div class="container">
+          <h1 class="text-center">新增人事档案</h1>
+          <form action="{:U('Home/Index/addpeoplepost')}" method="post">
+              <table class="table table-striped table-bordered table-hover table-condensed">
+                  <tr>
+                    <th class="text-center">
+                      <label for="no">工号：</label>
+                      <input type="text" name="no" id="no" class="form-control">
+                    </th>
+                    <th class="text-center">
+                    <label for="name">姓名：</label>
+                    <input type="text" name="name" id="name" class="form-control"></th>
+                    <th class="text-center">
+                      <label for="team">团队：</label>
+                     <select name="team" id="team" class="form-control">
+                       <option value="0" class="form-control">请选择团队</option>
+                       <foreach name="team" item="v">
+                        <option value="{$v.name}" class="form-control">{$v.name}</option>
+                       </foreach>
+                     </select>
+                    </th>
+                  </tr>
+                  <tr>  
+                    <th class="text-center">
+                    <label for="position">职位：</label>
+                    <input type="text" name="position" id="position" class="form-control"></th>
+                    <th class="text-center">
+                    <label for="level">序列：</label>
+                    <input type="text" name="level" id="level" class="form-control"></th>
+                    <th class="text-center">
+                      <label for="entrytime">入职时间：</label>
+                      <input type="date" name="entrytime" id="entrytime" class="form-control" placeholder="年/月/日">
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="text-center">
+                    <label for="erans">月薪：</label>
+                    <input type="text" name="erans" id="erans" class="form-control"></th>
+                    <th class="text-center">
+                      <label for="sex">性别：</label>
+                      <select name="sex" id="sex" class="form-control">
+                        <option value="男" class="form-control">男</option>
+                        <option value="女" class="form-control">女</option>
+                      </select>
+                    </th>
+                    <th class="text-center">
+                    <label for="tel">手机：</label>
+                    <input type="text" name="tel" id="tel" class="form-control"></th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th class="text-center">
+                    <label for="birthday">生日：</label>
+                    <input type="date" name="birthday" id="birthday" class="form-control" placeholder="年/月/日"></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="text-center">
+                      <input type="submit" value="添加" class="btn btn-success">
+                    </td>
+                  </tr>
+              </table>
+          </form>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

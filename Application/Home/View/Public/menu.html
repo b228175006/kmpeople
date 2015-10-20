@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{:U('/Home/Index/index')}">人事档案管理</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{:U('/Home/Index/addpeople')}">人事档案添加</a></li>
+       <!--  <li><a href="{:U('/Home/Index/index')}">人事档案管理</a></li> -->
+      </ul>
+      <form class="navbar-form navbar-left" role="search" method="post" action="{:U('/Home/Index/seach')}" >
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="人事档案搜索" name="name">
+          <select name="team" id="team" class="form-control">
+           <option value="0">请选择团队</option>
+           <foreach name="team" item="v">
+            <option value="{$v.name}">{$v.name}</option>
+           </foreach>
+	      </select>
+        </div>
+        <input type="submit" value="搜索" class="btn btn-default">
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-text"><p class="navbar-link"><kbd>{$Think.session.nikename}</kbd>,欢迎登陆人事档案系统</p></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          	<li><a href="{:U('/Home/Login/inspsw')}">修改密码</a></li>
+            <li {$needadmin} role="separator" class="divider"></li>
+            <li {$needadmin}><a href="{:U('/Home/Login/addlogin')}">新增管理员</a></li>
+            <li {$needadmin}><a href="{:U('/Home/Login/alllogin')}">管理员列表</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{:U('/Home/Index/team')}">团队设置</a></li>
+          </ul>
+        </li>
+        <li><a href="{:U('/Home/Login/loginout')}">登出</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
